@@ -1,0 +1,338 @@
+/* Základní resetování stylů pro tělo */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px; /* Základní velikost písma */
+    margin: 0;
+    padding: 0;
+    background: url('your-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+/* Styl headeru */
+header {
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+/* Styl pro switch (přepínač) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: rgba(240, 200, 67, 0.9);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Styl hlavního obsahu */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Styl pro formulář */
+form {
+    background: rgba(240, 200, 67, 0.9);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 50px;
+    width: 100%;
+    font-size: 18px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+/* Bílé ohraničení pro formulář v tmavém režimu */
+body.dark-mode form {
+    border: 2px solid #fff;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styl pro počasí */
+.weather-info {
+    text-align: center;
+    padding: 25px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(240, 200, 67, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+/* Styl pro tabulku předpovědi */
+.forecast-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.forecast-title {
+    margin-bottom: 10px;
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+.forecast-info {
+    position: relative;
+    border-radius: 10px;
+    overflow: auto;
+    border: 2px solid #000;
+}
+
+.forecast-info table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: rgba(240, 200, 67, 0.8);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.forecast-info th, .forecast-info td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #000;
+    word-wrap: break-word;
+}
+
+.forecast-info th {
+    background-color: rgba(240, 200, 67, 0.9);
+    color: white;
+}
+
+body.dark-mode .forecast-info {
+    border-color: #fff;
+}
+
+body.dark-mode .forecast-info table {
+    background-color: #444;
+}
+
+body.dark-mode .forecast-info th,
+body.dark-mode .forecast-info td {
+    border: 1px solid #fff;
+}
+
+/* Media query pro mobilní zobrazení */
+@media (max-width: 600px) {
+    .forecast-info table {
+        font-size: 14px; /* Zmenšení písma pro lepší čitelnost na menších obrazovkách */
+    }
+
+    .forecast-info th,
+    .forecast-info td {
+        padding: 6px; /* Snížení paddingu, aby se text vešel */
+        white-space: normal; /* Povolit zalomení textu v buňkách */
+    }
+
+    .forecast-info th {
+        font-size: 14px; /* Snížení velikosti písma nadpisů v tabulce */
+    }
+
+    .forecast-container {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .map-container {
+        overflow-x: auto;
+    }
+
+    #map {
+        width: 100%;
+        height: 300px; /* Upravte výšku podle potřeby */
+        min-width: 100%;
+    }
+}
+
+/* Styl pro mapu */
+.map-container {
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+}
+
+.map-title {
+    margin-bottom: 10px;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    min-width: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode #map {
+    border-color: #fff;
+}
+
+/* Styl pro footer */
+footer {
+    background-color: rgba(76, 175, 80, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+/* Media query pro responsivitu */
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+        padding: 0;
+    }
+
+    form input[type="text"],
+    form input[type="submit"],
+    .weather-info,
+    .forecast-info,
+    .map-container {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}
